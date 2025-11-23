@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Monjirul Hoque | Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            dark: '#0f0f0f',
+                            surface: '#1a1a1a'
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f0f0f; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37; 
+        }
+
+        /* Hide scrollbar for gallery but keep functionality if needed */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Image hover effects */
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-gold selection:text-black">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 px-6 lg:px-12 bg-transparent backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl md:text-2xl font-serif font-bold tracking-widest text-white z-50 truncate max-w-[200px] md:max-w-none">MONJIRUL.</a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 text-sm tracking-widest font-light">
+                <a href="#home" class="hover:text-brand-gold transition-colors">HOME</a>
+                
+                <!-- Dropdown 1: Portfolio -->
+                <div class="relative group">
+                    <button class="flex items-center space-x-1 hover:text-brand-gold transition-colors focus:outline-none py-2">
+                        <span>PORTFOLIO</span>
+                        <i class="fas fa-chevron-down text-[10px] ml-1 opacity-70 group-hover:rotate-180 transition-transform duration-300"></i>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div class="absolute left-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+                        <div class="bg-brand-dark/95 backdrop-blur-md border border-gray-800 shadow-2xl">
+                            <a href="#gallery" class="block px-6 py-4 hover:bg-white/5 hover:text-brand-gold text-xs tracking-widest border-b border-gray-800/50 transition-colors">AI ARTWORK</a>
+                            <a href="#gallery" class="block px-6 py-4 hover:bg-white/5 hover:text-brand-gold text-xs tracking-widest border-b border-gray-800/50 transition-colors">PHOTOGRAPHY</a>
+                            <a href="#gallery" class="block px-6 py-4 hover:bg-white/5 hover:text-brand-gold text-xs tracking-widest transition-colors">COMMERCIAL</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dropdown 2: Resources/Pages -->
+                <div class="relative group">
+                    <button class="flex items-center space-x-1 hover:text-brand-gold transition-colors focus:outline-none py-2">
+                        <span>RESOURCES</span>
+                        <i class="fas fa-chevron-down text-[10px] ml-1 opacity-70 group-hover:rotate-180 transition-transform duration-300"></i>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div class="absolute left-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+                        <div class="bg-brand-dark/95 backdrop-blur-md border border-gray-800 shadow-2xl">
+                            <a href="#" class="block px-6 py-4 hover:bg-white/5 hover:text-brand-gold text-xs tracking-widest border-b border-gray-800/50 transition-colors">PRESETS</a>
+                            <a href="#" class="block px-6 py-4 hover:bg-white/5 hover:text-brand-gold text-xs tracking-widest border-b border-gray-800/50 transition-colors">TUTORIALS</a>
+                            <a href="#" class="block px-6 py-4 hover:bg-white/5 hover:text-brand-gold text-xs tracking-widest transition-colors">BLOG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#about" class="hover:text-brand-gold transition-colors">ABOUT</a>
+                <a href="#contact" class="hover:text-brand-gold transition-colors">CONTACT</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white z-50 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-dark flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 overflow-y-auto">
+            <div class="flex flex-col space-y-6 text-center text-xl font-serif tracking-widest py-10">
+                <a href="#home" class="mobile-link hover:text-brand-gold transition-colors">HOME</a>
+                
+                <!-- Mobile Dropdown Accordion -->
+                <div class="flex flex-col space-y-4">
+                    <span class="text-brand-gold/50 text-sm tracking-widest border-b border-brand-gold/20 pb-2">PORTFOLIO</span>
+                    <a href="#gallery" class="mobile-link text-base hover:text-brand-gold transition-colors">AI ART</a>
+                    <a href="#gallery" class="mobile-link text-base hover:text-brand-gold transition-colors">PHOTOGRAPHY</a>
+                </div>
+
+                <a href="#about" class="mobile-link hover:text-brand-gold transition-colors mt-4">ABOUT</a>
+                <a href="#contact" class="mobile-link hover:text-brand-gold transition-colors">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=2564&q=80" 
+                 alt="Hero Background" 
+                 class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/60 via-brand-dark/20 to-brand-dark"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 animate-slide-up">
+            <p class="text-brand-gold tracking-[0.3em] text-sm md:text-base mb-4 uppercase">Lecturer & Visual Artist</p>
+            <h1 class="text-5xl md:text-7xl lg:text-9xl font-serif font-bold text-white mb-6 tracking-tighter">
+                ARTIFICIAL<br/>REALITY
+            </h1>
+            <p class="max-w-xl mx-auto text-gray-400 text-sm md:text-lg font-light mb-10 leading-relaxed">
+                Blending the precision of Economics with the limitless imagination of AI. Capturing moments and reimagining them into digital masterpieces.
+            </p>
+            <a href="#gallery" class="inline-block px-8 py-3 border border-white/30 text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 tracking-widest text-xs md:text-sm">
+                VIEW EXPERIMENTS
+            </a>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white/50"></i>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 px-4 bg-brand-dark">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-2">Selected Works</h2>
+                    <div class="h-1 w-20 bg-brand-gold"></div>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex space-x-6 mt-8 md:mt-0 overflow-x-auto pb-2 md:pb-0 hide-scroll">
+                    <button class="filter-btn active text-sm tracking-widest text-brand-gold border-b border-brand-gold pb-1" data-filter="all">ALL</button>
+                    <button class="filter-btn text-sm tracking-widest text-gray-500 hover:text-white transition-colors pb-1" data-filter="ai-art">AI ART</button>
+                    <button class="filter-btn text-sm tracking-widest text-gray-500 hover:text-white transition-colors pb-1" data-filter="portrait">PORTRAIT</button>
+                    <button class="filter-btn text-sm tracking-widest text-gray-500 hover:text-white transition-colors pb-1" data-filter="landscape">LANDSCAPE</button>
+                </div>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6" id="gallery-grid">
+                <!-- Javascript will populate this -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-brand-surface relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <!-- Image -->
+                <div class="w-full md:w-1/2 relative group">
+                    <div class="absolute -inset-4 bg-brand-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg"></div>
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Md. Monjirul Hoque" 
+                         class="w-full h-[500px] object-cover relative z-10 grayscale hover:grayscale-0 transition-all duration-700 ease-in-out shadow-2xl">
+                </div>
+                
+                <!-- Content -->
+                <div class="w-full md:w-1/2">
+                    <span class="text-brand-gold tracking-widest text-sm uppercase">About the Artist</span>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mt-4 mb-6">Md. Monjirul Hoque</h2>
+                    <p class="text-white/80 font-serif text-lg mb-6 italic">Lecturer (Economics) & AI Artist</p>
+                    
+                    <p class="text-gray-400 leading-relaxed mb-6 font-light">
+                        I am Md. Monjirul Hoque. By profession, I serve as a Lecturer in Economics, but photography is where I find my deepest attraction. Whenever I find a moment of respite from my academic duties, I venture out to capture the world through my lens.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed mb-8 font-light">
+                        My true joy lies in the fusion of reality and imagination. I love experimenting with my captures using AI technology, transforming simple frames into extraordinary visual experiences. Sharing these experiments on social media and connecting with fellow art enthusiasts is what keeps my creative spirit alive.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8 border-t border-gray-800 pt-8">
+                        <div>
+                            <span class="block text-2xl font-serif text-white">Focus</span>
+                            <span class="text-xs text-gray-500 tracking-wider">AI EDITING & PHOTOGRAPHY</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-serif text-white">Profession</span>
+                            <span class="text-xs text-gray-500 tracking-wider">LECTURER IN ECONOMICS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <div class="py-32 text-center bg-brand-dark px-4">
+        <div class="max-w-4xl mx-auto">
+            <i class="fas fa-quote-left text-brand-gold/30 text-4xl mb-6"></i>
+            <h3 class="text-2xl md:text-4xl font-serif text-white leading-normal italic">
+                "I capture reality, then I let my imagination rewrite it."
+            </h3>
+            <p class="mt-6 text-gray-500 tracking-widest uppercase text-sm">— Md. Monjirul Hoque</p>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-black relative">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-brand-gold tracking-widest text-sm uppercase">Get In Touch</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mt-4">Let's Create Together</h2>
+            </div>
+
+            <!-- Formspree Form -->
+            <form action="https://formspree.io/f/xldbznvv" method="POST" id="contact-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="group">
+                        <label class="block text-xs uppercase tracking-wider text-gray-500 mb-2 group-focus-within:text-brand-gold">Name</label>
+                        <input type="text" name="name" required class="w-full bg-brand-surface border-b border-gray-800 text-white p-3 focus:outline-none focus:border-brand-gold transition-colors">
+                    </div>
+                    <div class="group">
+                        <label class="block text-xs uppercase tracking-wider text-gray-500 mb-2 group-focus-within:text-brand-gold">Email</label>
+                        <input type="email" name="email" required class="w-full bg-brand-surface border-b border-gray-800 text-white p-3 focus:outline-none focus:border-brand-gold transition-colors">
+                    </div>
+                </div>
+                <div class="group">
+                    <label class="block text-xs uppercase tracking-wider text-gray-500 mb-2 group-focus-within:text-brand-gold">Subject</label>
+                    <input type="text" name="subject" class="w-full bg-brand-surface border-b border-gray-800 text-white p-3 focus:outline-none focus:border-brand-gold transition-colors">
+                </div>
+                <div class="group">
+                    <label class="block text-xs uppercase tracking-wider text-gray-500 mb-2 group-focus-within:text-brand-gold">Message</label>
+                    <textarea name="message" rows="4" required class="w-full bg-brand-surface border-b border-gray-800 text-white p-3 focus:outline-none focus:border-brand-gold transition-colors"></textarea>
+                </div>
+                
+                <div class="text-center mt-10">
+                    <button type="submit" class="px-10 py-4 bg-white text-black font-bold tracking-widest text-sm hover:bg-brand-gold hover:text-white transition-all duration-300">
+                        SEND MESSAGE
+                    </button>
+                    <!-- Note: Since we are using Formspree standard redirect, the JS feedback might be overridden unless we preventDefault and use AJAX, 
+                         but for simplicity with Formspree free tier, standard submission is safer. 
+                         I will keep the default submission for reliability. -->
+                </div>
+            </form>
+
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-8 mt-20">
+                <a href="#" class="text-gray-500 hover:text-white hover:scale-110 transition-all text-xl"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-500 hover:text-white hover:scale-110 transition-all text-xl"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-500 hover:text-white hover:scale-110 transition-all text-xl"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-500 hover:text-white hover:scale-110 transition-all text-xl"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-gray-900 py-10 text-center">
+        <p class="text-gray-600 text-xs tracking-widest">© 2024 MD. MONJIRUL HOQUE. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex justify-center items-center opacity-0 transition-opacity duration-300">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-gray-400 hover:text-white text-4xl focus:outline-none z-50">
+            &times;
+        </button>
+        <div class="max-w-7xl max-h-screen p-4 flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="Full view" class="max-h-[85vh] max-w-full object-contain shadow-2xl">
+            <div class="mt-4 text-center">
+                <h3 id="lightbox-title" class="text-white font-serif text-2xl"></h3>
+                <p id="lightbox-category" class="text-brand-gold text-sm tracking-widest uppercase mt-1"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // --- Data ---
+        const portfolioItems = [
+            {
+                id: 1,
+                src: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80",
+                category: "ai-art",
+                title: "Neural Dreams"
+            },
+            {
+                id: 2,
+                src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1064&q=80",
+                category: "portrait",
+                title: "Ethereal Gaze"
+            },
+            {
+                id: 3,
+                src: "https://images.unsplash.com/photo-1633211516239-2b0e271c080d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                category: "ai-art",
+                title: "Cyber Surrealism"
+            },
+            {
+                id: 4,
+                src: "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1680&q=80",
+                category: "portrait",
+                title: "Vintage Soul"
+            },
+            {
+                id: 5,
+                src: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2144&q=80",
+                category: "landscape",
+                title: "Concrete Jungle"
+            },
+            {
+                id: 6,
+                src: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                category: "landscape",
+                title: "Silent Valley"
+            },
+            {
+                id: 7,
+                src: "https://images.unsplash.com/photo-1618172193763-c511deb635ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=2564&q=80",
+                category: "ai-art",
+                title: "Digital Genesis"
+            },
+            {
+                id: 8,
+                src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=988&q=80",
+                category: "portrait",
+                title: "Inner Strength"
+            },
+            {
+                id: 9,
+                src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                category: "landscape",
+                title: "Yosemite Mist"
+            }
+        ];
+
+        // --- Gallery Rendering ---
+        const galleryGrid = document.getElementById('gallery-grid');
+
+        function renderGallery(filter = 'all') {
+            galleryGrid.innerHTML = '';
+            
+            const filteredItems = filter === 'all' 
+                ? portfolioItems 
+                : portfolioItems.filter(item => item.category === filter);
+
+            filteredItems.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'gallery-item group relative overflow-hidden cursor-pointer';
+                div.onclick = () => openLightbox(item);
+                
+                div.innerHTML = `
+                    <img src="${item.src}" alt="${item.title}" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4">
+                        <span class="text-brand-gold text-xs tracking-[0.2em] uppercase mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">${item.category}</span>
+                        <h3 class="text-white font-serif text-2xl translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">${item.title}</h3>
+                    </div>
+                `;
+                galleryGrid.appendChild(div);
+            });
+        }
+
+        // Initialize Gallery
+        renderGallery();
+
+        // --- Filtering Logic ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active classes
+                filterBtns.forEach(b => {
+                    b.classList.remove('text-brand-gold', 'border-brand-gold');
+                    b.classList.add('text-gray-500', 'border-transparent');
+                });
+                
+                // Add active class
+                btn.classList.remove('text-gray-500', 'border-transparent');
+                btn.classList.add('text-brand-gold', 'border-brand-gold');
+
+                const filterValue = btn.getAttribute('data-filter');
+                
+                // Simple fade out effect
+                galleryGrid.classList.add('opacity-0');
+                setTimeout(() => {
+                    renderGallery(filterValue);
+                    galleryGrid.classList.remove('opacity-0');
+                }, 300);
+            });
+        });
+
+        // --- Lightbox Logic ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxCat = document.getElementById('lightbox-category');
+        const closeBtn = document.getElementById('lightbox-close');
+
+        function openLightbox(item) {
+            lightboxImg.src = item.src;
+            lightboxTitle.innerText = item.title;
+            lightboxCat.innerText = item.category;
+            
+            lightbox.classList.remove('hidden');
+            // Small delay to allow display:block to apply before changing opacity for transition
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = 'auto';
+        }
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // --- Mobile Menu ---
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                menuBtn.innerHTML = '<i class="fas fa-times text-2xl"></i>';
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                menuBtn.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                menuBtn.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+            });
+        });
+
+        // --- Navbar Scroll Effect ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-brand-dark/90', 'shadow-lg');
+                navbar.classList.remove('bg-transparent', 'py-6');
+                navbar.classList.add('py-4');
+            } else {
+                navbar.classList.remove('bg-brand-dark/90', 'shadow-lg');
+                navbar.classList.add('bg-transparent', 'py-6');
+                navbar.classList.remove('py-4');
+            }
+        });
+
+    </script>
+</body>
+</html>
