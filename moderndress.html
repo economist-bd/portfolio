@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladeshi Glamour Prompts | Md. Monjirul Hoque</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Cinzel', 'serif'] },
+                    colors: { brand: { gold: '#D4AF37', dark: '#0f0f0f', surface: '#1a1a1a' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        .prompt-card:hover .copy-btn { opacity: 1; }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-6 px-6 bg-brand-dark/95 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-serif font-bold tracking-widest text-white">MONJIRUL.</a>
+            <a href="index.html" class="text-xs tracking-widest text-brand-gold hover:text-white transition-colors uppercase"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="pt-32 pb-12 px-4 text-center">
+        <span class="text-brand-gold tracking-widest text-sm uppercase">High Fashion & Glamour</span>
+        <h1 class="text-3xl md:text-5xl font-serif font-bold text-white mt-4">Bangladeshi Glamour Prompts</h1>
+        <p class="text-gray-400 mt-4 max-w-2xl mx-auto font-light">A curated collection of prompts featuring stunning and glamorous Bangladeshi women in high-fashion and cinematic styles.</p>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-brand-gold text-black px-6 py-3 rounded shadow-xl z-[60] transition-opacity duration-300 opacity-0 pointer-events-none font-bold tracking-wider text-sm">
+        <i class="fas fa-check mr-2"></i> COPIED TO CLIPBOARD
+    </div>
+
+    <!-- Prompts Grid -->
+    <section class="pb-12 px-4 max-w-7xl mx-auto">
+        <div id="prompt-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Prompts will be injected here by JS -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-16">
+            <button id="generate-btn" class="group relative px-8 py-4 bg-transparent border border-gray-600 hover:border-brand-gold transition-colors duration-300">
+                <span class="text-white group-hover:text-brand-gold tracking-[0.2em] text-sm font-bold uppercase transition-colors">Generate 10 New Styles</span>
+                <div class="absolute inset-0 border border-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-gray-900 py-10 text-center">
+        <p class="text-gray-600 text-xs tracking-widest">© 2024 MD. MONJIRUL HOQUE.</p>
+    </footer>
+
+    <script>
+        // --- Initial Data (20 Handcrafted Glamour Prompts) ---
+        const initialPrompts = [
+            "Cinematic shot of a voluptuous Bangladeshi model walking on a fashion runway, wearing a modern tight-fitting golden saree, confident expression, spotlight, high fashion photography, 8k --ar 2:3",
+            "A glamorous portrait of a curvy Bangladeshi woman in a red sleeveless blouse and silk saree, standing against a dark moody background, heavy gold jewelry, dramatic rim lighting, vogue style --ar 2:3",
+            "A stunning young woman relaxing by a swimming pool in a luxury resort in Dhaka, wearing a stylish summer dress, sunglasses, golden hour sunlight highlighting her figure, vibrant colors --ar 2:3",
+            "Close-up fashion portrait of a beautiful Bengali girl with voluminous curly hair, wearing a deep blue velvet gown, bold red lipstick, looking directly at camera, intense gaze, studio lighting --ar 2:3",
+            "A chic urban photoshoot of a Bangladeshi girl wearing a fitted crop top and jeans, leaning against a neon-lit wall in Banani, night time, cyberpunk aesthetic, sharp focus --ar 2:3",
+            "Elegant and curvy woman attending a high-profile wedding, wearing a heavy designer lehenga, full body shot, blurred background of chandeliers, royal atmosphere, intricate details --ar 2:3",
+            "A fitness model from Bangladesh jogging in the morning at Ramna Park, wearing athletic sportswear, sunrise lighting, dynamic pose, energetic and healthy vibe --ar 2:3",
+            "Glamorous evening shot of a woman on a rooftop restaurant, wearing a black sequins saree, city lights bokeh in background, holding a mocktail, sophisticated look --ar 2:3",
+            "A bold artistic portrait of a woman in a wet saree standing in the rain, dramatic lighting, rain droplets, highlighting her silhouette, moody and cinematic --ar 2:3",
+            "A fashion influencer taking a selfie in a mirror, wearing a trendy corset top and skirt, modern interior background, ring light reflection, social media aesthetic --ar 2:3",
+            "Traditional yet bold, a village belle wearing a wet cotton saree after a bath in the pond, sunlight filtering through trees, natural beauty, authentic rural vibe --ar 2:3",
+            "A stylish corporate woman in a fitted pencil skirt and blazer, walking confidently in a glass office building, low angle shot, powerful and attractive --ar 2:3",
+            "A dreamy romantic portrait of a girl in a white chiffon saree, standing in a garden of roses, soft focus, angelic and curvy figure, ethereal lighting --ar 2:3",
+            "High-contrast black and white photography of a woman's silhouette against a bright window, highlighting curves and elegance, mystery and allure --ar 2:3",
+            "A vibrant festive look, woman wearing a yellow saree for Falgun, flower ornaments, laughing candidly, sun flare, bright and cheerful composition --ar 2:3",
+            "A stunning bride in her chamber, fixing her heavy jewelry, reflection in a vintage mirror, wearing a maroon Benarasi, dramatic shadows, intimate mood --ar 2:3",
+            "Fashion editorial shot of a girl on a boat in Kaptai Lake, wearing a fusion boho dress, wind blowing hair, mountains in background, wide angle majestic shot --ar 2:3",
+            "A retro bollywood style poster of a Bangladeshi heroine, wearing a polka dot dress, dramatic pose, vibrant colors, 70s vintage film look --ar 2:3",
+            "A young woman sitting on a traditional swing (dolna), wearing a colorful salwar kameez, movement blur, happy expression, dynamic composition --ar 2:3",
+            "An artistic portrait of a dancer in a classical pose, wearing a fitted dance costume, stage lighting, expressive eyes, grace and beauty combined --ar 2:3"
+        ];
+
+        // --- Auto Generator Data Parts (Glamour Themed) ---
+        const subjects = ["A glamorous Bangladeshi supermodel", "A stunning curvy young woman", "A voluptuous Bengali beauty", "A stylish fashion influencer", "A confident modern girl", "A traditional beauty with a modern twist"];
+        const outfits = ["wearing a fitted golden saree", "in a red sleeveless blouse", "wearing a designer lehenga", "in a tight-fitting modern dress", "wearing a wet cotton saree", "in a chic crop top and skirt", "draped in a sheer muslin saree", "wearing a bold evening gown"];
+        const settings = ["walking on a fashion runway", "posing in a luxury hotel lobby", "standing in the rain", "sitting in a high-end cafe", "on a rooftop at night", "in a blooming garden", "posing against a neon wall", "in a professional photo studio"];
+        const styles = ["cinematic lighting", "high fashion photography", "dramatic rim lighting", "vogue magazine style", "soft glamorous focus", "bold and edgy look", "classic bollywood style", "moody atmospheric lighting"];
+        const mood = ["confident", "alluring", "elegant", "bold", "sophisticated", "playful", "mysterious", "intense"];
+        const techSpecs = ["8k resolution", "photorealistic", "highly detailed", "sharp focus", "depth of field", "masterpiece", "shot on 85mm lens", "ultra-realistic"];
+
+        // --- DOM Elements ---
+        const grid = document.getElementById('prompt-grid');
+        const generateBtn = document.getElementById('generate-btn');
+        const toast = document.getElementById('toast');
+
+        // --- Functions ---
+
+        // 1. Random Picker
+        function getRandom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        // 2. Generator Logic
+        function generateAutoPrompts(count) {
+            let newPrompts = [];
+            for(let i=0; i<count; i++) {
+                const sub = getRandom(subjects);
+                const outfit = getRandom(outfits);
+                const place = getRandom(settings);
+                const style = getRandom(styles);
+                const vibe = getRandom(mood);
+                const tech = getRandom(techSpecs);
+                
+                // Constructing the prompt string
+                const prompt = `${sub}, ${vibe} expression, ${outfit}, ${place}, ${style}, ${tech} --ar 2:3`;
+                newPrompts.push(prompt);
+            }
+            return newPrompts;
+        }
+
+        // 3. Render Card
+        function createCard(text, index) {
+            const div = document.createElement('div');
+            div.className = 'prompt-card bg-brand-surface border border-gray-800 p-6 relative group hover:border-brand-gold/50 transition-all duration-300 cursor-pointer flex flex-col h-full animate-fade-in';
+            // Animation delay for cascading effect
+            div.style.animationDelay = `${(index % 10) * 0.05}s`;
+            
+            div.innerHTML = `
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-xs text-brand-gold uppercase tracking-wider font-bold">Glamour #${Math.floor(Math.random() * 9000) + 1000}</span>
+                    <i class="fas fa-copy text-gray-500 group-hover:text-brand-gold transition-colors copy-btn opacity-50"></i>
+                </div>
+                <p class="text-gray-300 font-light text-sm leading-relaxed flex-grow font-sans select-all">${text}</p>
+                <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-gray-600 group-hover:text-gray-400 transition-colors uppercase tracking-widest flex justify-between">
+                    <span>Midjourney v6</span>
+                    <span>--ar 2:3</span>
+                </div>
+            `;
+            
+            // Click to copy logic
+            div.addEventListener('click', () => {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast();
+                    div.classList.add('border-brand-gold');
+                    setTimeout(() => div.classList.remove('border-brand-gold'), 300);
+                });
+            });
+
+            return div;
+        }
+
+        // 4. Toast Notification
+        function showToast() {
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 2000);
+        }
+
+        // 5. Render Initial Prompts
+        function renderInitial() {
+            initialPrompts.forEach((prompt, index) => {
+                grid.appendChild(createCard(prompt, index));
+            });
+        }
+
+        // --- Event Listeners ---
+        
+        // Generate Button Click
+        generateBtn.addEventListener('click', () => {
+            // Button loading state
+            const originalText = generateBtn.querySelector('span').innerText;
+            generateBtn.querySelector('span').innerText = "GENERATING...";
+            generateBtn.disabled = true;
+
+            setTimeout(() => {
+                const newPrompts = generateAutoPrompts(10);
+                newPrompts.forEach((prompt, index) => {
+                    grid.appendChild(createCard(prompt, index));
+                });
+                
+                // Reset button
+                generateBtn.querySelector('span').innerText = originalText;
+                generateBtn.disabled = false;
+                
+                // Scroll slightly to show new content
+                window.scrollBy({ top: 400, behavior: 'smooth' });
+            }, 600); // Fake delay for effect
+        });
+
+        // Init
+        renderInitial();
+
+    </script>
+</body>
+</html>
