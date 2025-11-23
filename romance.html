@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladeshi Romance Prompts | Md. Monjirul Hoque</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Cinzel', 'serif'] },
+                    colors: { brand: { gold: '#D4AF37', dark: '#0f0f0f', surface: '#1a1a1a' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        .prompt-card:hover .copy-btn { opacity: 1; }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-6 px-6 bg-brand-dark/95 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-serif font-bold tracking-widest text-white">MONJIRUL.</a>
+            <a href="index.html" class="text-xs tracking-widest text-brand-gold hover:text-white transition-colors uppercase"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="pt-32 pb-12 px-4 text-center">
+        <span class="text-brand-gold tracking-widest text-sm uppercase">AI Love Stories</span>
+        <h1 class="text-3xl md:text-5xl font-serif font-bold text-white mt-4">Bangladeshi Romance Prompts</h1>
+        <p class="text-gray-400 mt-4 max-w-2xl mx-auto font-light">A curated collection of prompts capturing deep romance, emotion, and intimacy between Bangladeshi couples in cultural settings.</p>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-brand-gold text-black px-6 py-3 rounded shadow-xl z-[60] transition-opacity duration-300 opacity-0 pointer-events-none font-bold tracking-wider text-sm">
+        <i class="fas fa-check mr-2"></i> COPIED TO CLIPBOARD
+    </div>
+
+    <!-- Prompts Grid -->
+    <section class="pb-12 px-4 max-w-7xl mx-auto">
+        <div id="prompt-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Prompts will be injected here by JS -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-16">
+            <button id="generate-btn" class="group relative px-8 py-4 bg-transparent border border-gray-600 hover:border-brand-gold transition-colors duration-300">
+                <span class="text-white group-hover:text-brand-gold tracking-[0.2em] text-sm font-bold uppercase transition-colors">Generate 10 New Stories</span>
+                <div class="absolute inset-0 border border-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-gray-900 py-10 text-center">
+        <p class="text-gray-600 text-xs tracking-widest">© 2024 MD. MONJIRUL HOQUE.</p>
+    </footer>
+
+    <script>
+        // --- Initial Data (20 Handcrafted Bangladeshi Romance Prompts) ---
+        const initialPrompts = [
+            "A deeply romantic cinematic shot of a young Bangladeshi couple standing under a shared umbrella in heavy rain on a Dhaka street, neon city lights reflecting on wet asphalt, looking intensely into each other's eyes, he is wearing a casual Panjabi, she is in a blue saree, emotional atmosphere, 8k --ar 2:3",
+            "A newlywed Bangladeshi couple sitting on a rooftop at twilight, the city of Dhaka glowing in the background, holding hands, wearing traditional wedding attire (Red Benarasi and White Sherwani), soft candlelight, intimate moment, shallow depth of field --ar 2:3",
+            "Silhouette of a loving Bengali couple walking along the Cox's Bazar sea beach at sunset, golden hour lighting, waves crashing gently, wind blowing her saree, holding hands, peaceful and romantic vibe --ar 2:3",
+            "A young couple sharing a shy romantic moment in a mustard field (Shorshe khet), bright yellow flowers surrounding them, soft sunlight, he is fixing a flower in her hair, vivid colors, bollywood movie style --ar 2:3",
+            "Intimate close-up portrait of a Bangladeshi couple, forehead touching forehead, eyes closed, soft morning light coming through a window, wearing white cotton clothes, pure love and serenity, high detail --ar 2:3",
+            "A couple riding a traditional wooden boat on the Padma river during golden hour, sitting close, water reflecting the setting sun, he is pointing at the horizon, she is smiling at him, cinematic wide shot --ar 2:3",
+            "A romantic evening scene in Old Dhaka, a couple walking through a narrow historic lane under warm street lamps, ancient architecture, mysterious and moody atmosphere, wearing vintage style clothing --ar 2:3",
+            "University romance at Curzon Hall, a boy and girl sitting on the grass reading a book together, red brick architecture in background, dappled sunlight through trees, nostalgic and sweet mood --ar 2:3",
+            "A couple enjoying tea (cha) at a roadside stall in winter evening, steam rising from cups, wearing warm shawls, laughing together, bokeh background of city traffic, candid lifestyle photography --ar 2:3",
+            "Rickshaw romance in rain, a couple sitting under the hood of a colorful rickshaw, rain falling around them, cozy and private moment, vivid colors of rickshaw art contrasting with gray rain --ar 2:3",
+            "A dreamy sequence in a Sylhet tea garden, couple walking through lush green tea bushes, mist in the air, soft diffused lighting, ethereal romantic atmosphere, wearing green and white color coordination --ar 2:3",
+            "Festive romance on Pohela Boishakh, couple wearing matching red and white traditional attire, painted faces, standing in a crowd but focused only on each other, colorful background blur, joyful expression --ar 2:3",
+            "A couple on Saint Martin's Island, sitting on a coral rock gazing at the blue ocean, clear blue sky, tropical vibe, he is playing a guitar, she is listening mesmerized, travel romance --ar 2:3",
+            "Rooftop romance under a full moon, a couple leaning on the railing looking at the moon, silhouettes, dark blue night sky, city lights far below, quiet and deep conversation mood --ar 2:3",
+            "A library date, a young Bangladeshi couple standing between bookshelves, whispering to each other, soft warm lighting, smell of old books, intellectual romance vibe --ar 2:3",
+            "A couple on a swing (Dolna) hanging from a large Banyan tree in a village setting, sunset light filtering through leaves, laughing freely, carefree rural romance --ar 2:3",
+            "Deep emotional moment, a soldier returning home to his wife, embracing tightly at a train station, steam and crowd in background, dramatic lighting, love and longing theme --ar 2:3",
+            "A couple releasing a sky lantern (Fanus) together at a festival night, glowing warm light illuminating their faces, dark sky filled with other lanterns, magical atmosphere --ar 2:3",
+            "Modern urban romance, a stylish couple sitting in a high-end cafe in Gulshan, glass reflection showing city skyline, rain on window, drinking coffee, intense eye contact --ar 2:3",
+            "A poetic boat ride in the Haor wetlands, vast water around, couple sitting on the boat roof, reflection of clouds in water, minimal composition, serene and deep love --ar 2:3"
+        ];
+
+        // --- Auto Generator Data Parts (Romance Themed) ---
+        const subjects = ["A deeply in love Bangladeshi couple", "A shy young Bengali couple", "A newlywed Bangladeshi couple", "A stylish modern couple", "A village couple in love", "Soulmates looking at each other"];
+        const actions = ["holding hands tightly", "looking deeply into each other's eyes", "sharing a shy smile", "walking side by side", "sitting close together", "forehead touching", "sharing an umbrella", "whispering secrets"];
+        const outfits = ["wearing matching color Panjabi and Saree", "in traditional wedding attire", "wearing casual urban clothes", "wrapped in warm winter shawls", "in festive red and white attire", "wearing elegant evening wear"];
+        const settings = ["on a rain-soaked Dhaka street", "under a Banyan tree in a village", "on a boat in the Sundarbans", "at a rooftop restaurant at night", "near the Shaheed Minar", "in a blooming mustard field", "on a busy rickshaw", "at a train station platform"];
+        const mood = ["cinematic lighting", "romantic golden hour", "soft dreamy focus", "moody rain atmosphere", "warm candlelight", "intimate close-up", "dramatic shadows", "nostalgic film look"];
+        const style = ["ultra-realistic 8k", "oil painting style", "vintage film grain", "soft watercolor style", "sharp editorial photography", "dreamy fantasy art"];
+
+        // --- DOM Elements ---
+        const grid = document.getElementById('prompt-grid');
+        const generateBtn = document.getElementById('generate-btn');
+        const toast = document.getElementById('toast');
+
+        // --- Functions ---
+
+        // 1. Random Picker
+        function getRandom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        // 2. Generator Logic
+        function generateAutoPrompts(count) {
+            let newPrompts = [];
+            for(let i=0; i<count; i++) {
+                const sub = getRandom(subjects);
+                const act = getRandom(actions);
+                const outfit = getRandom(outfits);
+                const loc = getRandom(settings);
+                const light = getRandom(mood);
+                const artStyle = getRandom(style);
+                
+                // Constructing the prompt string
+                const prompt = `${sub} ${act}, ${outfit}, ${loc}, ${light}, emotional connection, ${artStyle}, highly detailed, masterpiece --ar 2:3`;
+                newPrompts.push(prompt);
+            }
+            return newPrompts;
+        }
+
+        // 3. Render Card
+        function createCard(text, index) {
+            const div = document.createElement('div');
+            div.className = 'prompt-card bg-brand-surface border border-gray-800 p-6 relative group hover:border-brand-gold/50 transition-all duration-300 cursor-pointer flex flex-col h-full animate-fade-in';
+            // Animation delay for cascading effect
+            div.style.animationDelay = `${(index % 10) * 0.05}s`;
+            
+            div.innerHTML = `
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-xs text-brand-gold uppercase tracking-wider font-bold">Love Story #${Math.floor(Math.random() * 9000) + 1000}</span>
+                    <i class="fas fa-copy text-gray-500 group-hover:text-brand-gold transition-colors copy-btn opacity-50"></i>
+                </div>
+                <p class="text-gray-300 font-light text-sm leading-relaxed flex-grow font-sans select-all">${text}</p>
+                <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-gray-600 group-hover:text-gray-400 transition-colors uppercase tracking-widest flex justify-between">
+                    <span>Midjourney v6</span>
+                    <span>--ar 2:3</span>
+                </div>
+            `;
+            
+            // Click to copy logic
+            div.addEventListener('click', () => {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast();
+                    div.classList.add('border-brand-gold');
+                    setTimeout(() => div.classList.remove('border-brand-gold'), 300);
+                });
+            });
+
+            return div;
+        }
+
+        // 4. Toast Notification
+        function showToast() {
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 2000);
+        }
+
+        // 5. Render Initial Prompts
+        function renderInitial() {
+            initialPrompts.forEach((prompt, index) => {
+                grid.appendChild(createCard(prompt, index));
+            });
+        }
+
+        // --- Event Listeners ---
+        
+        // Generate Button Click
+        generateBtn.addEventListener('click', () => {
+            // Button loading state
+            const originalText = generateBtn.querySelector('span').innerText;
+            generateBtn.querySelector('span').innerText = "WEAVING DREAMS...";
+            generateBtn.disabled = true;
+
+            setTimeout(() => {
+                const newPrompts = generateAutoPrompts(10);
+                newPrompts.forEach((prompt, index) => {
+                    grid.appendChild(createCard(prompt, index));
+                });
+                
+                // Reset button
+                generateBtn.querySelector('span').innerText = originalText;
+                generateBtn.disabled = false;
+                
+                // Scroll slightly to show new content
+                window.scrollBy({ top: 400, behavior: 'smooth' });
+            }, 600); // Fake delay for effect
+        });
+
+        // Init
+        renderInitial();
+
+    </script>
+</body>
+</html>
