@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Md. Monjirul Hoque</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Cinzel', 'serif'] },
+                    colors: { brand: { gold: '#D4AF37', dark: '#0f0f0f', surface: '#1a1a1a' } }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans antialiased">
+
+    <nav class="fixed w-full z-50 py-6 px-6 bg-brand-dark/95 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-serif font-bold tracking-widest text-white">MONJIRUL.</a>
+            <a href="index.html" class="text-xs tracking-widest text-brand-gold hover:text-white transition-colors uppercase"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="pt-32 pb-16 px-4 text-center">
+        <span class="text-brand-gold tracking-widest text-sm uppercase">Thoughts & Stories</span>
+        <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mt-4">The Journal</h1>
+    </div>
+
+    <section class="pb-24 px-4 max-w-4xl mx-auto space-y-16">
+        
+        <!-- Blog Post 1 -->
+        <article class="border-b border-gray-800 pb-12">
+            <div class="mb-6">
+                <span class="text-brand-gold text-xs tracking-widest uppercase">October 24, 2024</span>
+                <span class="text-gray-600 mx-2">|</span>
+                <span class="text-gray-500 text-xs tracking-widest uppercase">AI Ethics</span>
+            </div>
+            <a href="#" class="block group">
+                <h2 class="text-3xl font-serif text-white group-hover:text-brand-gold transition-colors mb-4">The Future of Creative Ownership in an AI World</h2>
+                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-80 object-cover my-6 opacity-80 group-hover:opacity-100 transition-opacity">
+            </a>
+            <p class="text-gray-400 leading-relaxed font-light mb-6">
+                As we integrate more artificial intelligence into our creative workflows, the line between operator and artist becomes blurred. In this post, I explore my personal philosophy on maintaining human intent within algorithmic generation...
+            </p>
+            <a href="#" class="text-white text-sm tracking-widest border-b border-brand-gold pb-1 hover:text-brand-gold transition-colors uppercase">Read Full Story</a>
+        </article>
+
+        <!-- Blog Post 2 -->
+        <article class="border-b border-gray-800 pb-12">
+            <div class="mb-6">
+                <span class="text-brand-gold text-xs tracking-widest uppercase">September 12, 2024</span>
+                <span class="text-gray-600 mx-2">|</span>
+                <span class="text-gray-500 text-xs tracking-widest uppercase">Travel</span>
+            </div>
+            <a href="#" class="block group">
+                <h2 class="text-3xl font-serif text-white group-hover:text-brand-gold transition-colors mb-4">Finding Silence in the Chaos of Dhaka</h2>
+                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-80 object-cover my-6 opacity-80 group-hover:opacity-100 transition-opacity">
+            </a>
+            <p class="text-gray-400 leading-relaxed font-light mb-6">
+                Street photography is often about the noise, but sometimes, if you wait long enough, the city takes a breath. Here is a collection of moments where the busy streets of Dhaka seemed to stand still...
+            </p>
+            <a href="#" class="text-white text-sm tracking-widest border-b border-brand-gold pb-1 hover:text-brand-gold transition-colors uppercase">Read Full Story</a>
+        </article>
+
+    </section>
+
+    <footer class="bg-brand-dark border-t border-gray-900 py-10 text-center">
+        <p class="text-gray-600 text-xs tracking-widest">© 2024 MD. MONJIRUL HOQUE.</p>
+    </footer>
+</body>
+</html>
