@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presets | Md. Monjirul Hoque</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Cinzel', 'serif'] },
+                    colors: { brand: { gold: '#D4AF37', dark: '#0f0f0f', surface: '#1a1a1a' } }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-6 px-6 bg-brand-dark/95 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-serif font-bold tracking-widest text-white">MONJIRUL.</a>
+            <a href="index.html" class="text-xs tracking-widest text-brand-gold hover:text-white transition-colors uppercase"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="pt-32 pb-16 px-4 text-center">
+        <span class="text-brand-gold tracking-widest text-sm uppercase">Shop Resources</span>
+        <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mt-4">Lightroom Presets</h1>
+        <p class="text-gray-400 mt-4 max-w-2xl mx-auto font-light">Elevate your photography with my custom-made presets. Perfect for achieving that moody, cinematic, or AI-enhanced look.</p>
+    </div>
+
+    <!-- Presets Grid -->
+    <section class="pb-24 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Preset Card 1 -->
+            <div class="group bg-brand-surface border border-gray-800 hover:border-brand-gold/50 transition-all duration-300 flex flex-col">
+                <div class="relative overflow-hidden h-64">
+                    <img src="https://images.unsplash.com/photo-1542202229-7d93c33f5d07?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Urban Moody" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute top-4 right-4 bg-brand-gold text-black font-bold text-xs px-2 py-1 uppercase tracking-wider">Best Seller</div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-serif text-white mb-2">Urban Moody Pack</h3>
+                    <p class="text-gray-500 text-sm mb-4 flex-1">Perfect for cityscapes and street photography. Adds deep shadows and desaturated blues.</p>
+                    <ul class="text-xs text-gray-400 mb-6 space-y-1">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> 10 Mobile & Desktop Presets</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Installation Guide</li>
+                    </ul>
+                    <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-800">
+                        <span class="text-2xl font-bold text-white">$19.99</span>
+                        <button class="text-xs tracking-widest border border-gray-600 px-4 py-2 hover:bg-brand-gold hover:text-black hover:border-brand-gold transition-colors uppercase">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preset Card 2 -->
+            <div class="group bg-brand-surface border border-gray-800 hover:border-brand-gold/50 transition-all duration-300 flex flex-col">
+                <div class="relative overflow-hidden h-64">
+                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" alt="AI Surreal" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute top-4 right-4 bg-white/20 text-white backdrop-blur-sm border border-white/20 font-bold text-xs px-2 py-1 uppercase tracking-wider">New</div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-serif text-white mb-2">AI Surrealist Pack</h3>
+                    <p class="text-gray-500 text-sm mb-4 flex-1">Designed specifically for AI-generated art cleanup. Enhances sharpness and vibrancy.</p>
+                    <ul class="text-xs text-gray-400 mb-6 space-y-1">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> 15 Specialized Presets</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Texture Enhancers</li>
+                    </ul>
+                    <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-800">
+                        <span class="text-2xl font-bold text-white">$24.99</span>
+                        <button class="text-xs tracking-widest border border-gray-600 px-4 py-2 hover:bg-brand-gold hover:text-black hover:border-brand-gold transition-colors uppercase">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preset Card 3 -->
+            <div class="group bg-brand-surface border border-gray-800 hover:border-brand-gold/50 transition-all duration-300 flex flex-col">
+                <div class="relative overflow-hidden h-64">
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1364&q=80" alt="Cinematic Portrait" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-serif text-white mb-2">Cinematic Portrait</h3>
+                    <p class="text-gray-500 text-sm mb-4 flex-1">Skin tone protection with film grain simulation. Ideal for outdoor portraits.</p>
+                    <ul class="text-xs text-gray-400 mb-6 space-y-1">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> 8 Portrait Presets</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Grain Control</li>
+                    </ul>
+                    <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-800">
+                        <span class="text-2xl font-bold text-white">$14.99</span>
+                        <button class="text-xs tracking-widest border border-gray-600 px-4 py-2 hover:bg-brand-gold hover:text-black hover:border-brand-gold transition-colors uppercase">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preset Card 4 -->
+            <div class="group bg-brand-surface border border-gray-800 hover:border-brand-gold/50 transition-all duration-300 flex flex-col">
+                <div class="relative overflow-hidden h-64">
+                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Nature Pack" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-serif text-white mb-2">Nature & Wildlife</h3>
+                    <p class="text-gray-500 text-sm mb-4 flex-1">Bring out the greens and earthy tones. Perfect for landscape and wildlife shots.</p>
+                    <ul class="text-xs text-gray-400 mb-6 space-y-1">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> 12 Nature Presets</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Green Pop</li>
+                    </ul>
+                    <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-800">
+                        <span class="text-2xl font-bold text-white">$16.99</span>
+                        <button class="text-xs tracking-widest border border-gray-600 px-4 py-2 hover:bg-brand-gold hover:text-black hover:border-brand-gold transition-colors uppercase">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preset Card 5 -->
+            <div class="group bg-brand-surface border border-gray-800 hover:border-brand-gold/50 transition-all duration-300 flex flex-col">
+                <div class="relative overflow-hidden h-64">
+                    <img src="https://images.unsplash.com/photo-1517423568366-69f874360d8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Night Life" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-serif text-white mb-2">Neon Nights</h3>
+                    <p class="text-gray-500 text-sm mb-4 flex-1">High contrast presets for night photography and neon lights.</p>
+                    <ul class="text-xs text-gray-400 mb-6 space-y-1">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> 8 Night Presets</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Noise Reduction</li>
+                    </ul>
+                    <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-800">
+                        <span class="text-2xl font-bold text-white">$12.99</span>
+                        <button class="text-xs tracking-widest border border-gray-600 px-4 py-2 hover:bg-brand-gold hover:text-black hover:border-brand-gold transition-colors uppercase">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preset Card 6 (Bundle) -->
+            <div class="group bg-brand-surface border border-gray-800 hover:border-brand-gold/50 transition-all duration-300 flex flex-col relative">
+                <div class="absolute inset-0 border-2 border-brand-gold pointer-events-none z-10"></div>
+                <div class="relative overflow-hidden h-64">
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Master Bundle" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-brand-gold/10"></div>
+                    <div class="absolute bottom-0 w-full bg-brand-gold text-black text-center py-1 font-bold text-xs uppercase tracking-widest">Ultimate Collection</div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-serif text-white mb-2">Master Collection 2024</h3>
+                    <p class="text-gray-500 text-sm mb-4 flex-1">Get all my preset packs in one bundle. Over 50+ presets for every situation.</p>
+                    <ul class="text-xs text-gray-400 mb-6 space-y-1">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> All 5 Packs Included</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Lifetime Updates</li>
+                    </ul>
+                    <div class="flex justify-between items-center mt-auto pt-4 border-t border-gray-800">
+                        <div>
+                            <span class="text-sm line-through text-gray-500">$89</span>
+                            <span class="text-2xl font-bold text-white ml-2">$49.99</span>
+                        </div>
+                        <button class="text-xs tracking-widest bg-brand-gold text-black border border-brand-gold px-4 py-2 hover:bg-white hover:text-black transition-colors uppercase font-bold">Buy Bundle</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-gray-900 py-10 text-center">
+        <p class="text-gray-600 text-xs tracking-widest">© 2024 MD. MONJIRUL HOQUE.</p>
+    </footer>
+</body>
+</html>
