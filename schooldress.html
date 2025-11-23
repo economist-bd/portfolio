@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladeshi School Life Prompts | Md. Monjirul Hoque</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Cinzel', 'serif'] },
+                    colors: { brand: { gold: '#D4AF37', dark: '#0f0f0f', surface: '#1a1a1a' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        .prompt-card:hover .copy-btn { opacity: 1; }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-6 px-6 bg-brand-dark/95 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-serif font-bold tracking-widest text-white">MONJIRUL.</a>
+            <a href="index.html" class="text-xs tracking-widest text-brand-gold hover:text-white transition-colors uppercase"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="pt-32 pb-12 px-4 text-center">
+        <span class="text-brand-gold tracking-widest text-sm uppercase">Nostalgia & Innocence</span>
+        <h1 class="text-3xl md:text-5xl font-serif font-bold text-white mt-4">Bangladeshi School Life Prompts</h1>
+        <p class="text-gray-400 mt-4 max-w-2xl mx-auto font-light">A curated collection of prompts capturing the nostalgic and vibrant school life of Bangladeshi girls in various uniforms and settings.</p>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-brand-gold text-black px-6 py-3 rounded shadow-xl z-[60] transition-opacity duration-300 opacity-0 pointer-events-none font-bold tracking-wider text-sm">
+        <i class="fas fa-check mr-2"></i> COPIED TO CLIPBOARD
+    </div>
+
+    <!-- Prompts Grid -->
+    <section class="pb-12 px-4 max-w-7xl mx-auto">
+        <div id="prompt-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Prompts will be injected here by JS -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-16">
+            <button id="generate-btn" class="group relative px-8 py-4 bg-transparent border border-gray-600 hover:border-brand-gold transition-colors duration-300">
+                <span class="text-white group-hover:text-brand-gold tracking-[0.2em] text-sm font-bold uppercase transition-colors">Generate 10 New Scenes</span>
+                <div class="absolute inset-0 border border-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-gray-900 py-10 text-center">
+        <p class="text-gray-600 text-xs tracking-widest">© 2024 MD. MONJIRUL HOQUE.</p>
+    </footer>
+
+    <script>
+        // --- Initial Data (20 Handcrafted School Life Prompts) ---
+        const initialPrompts = [
+            "A cinematic wide shot of a group of Bangladeshi school girls walking down a village road in the morning mist, wearing white salwar kameez uniforms with blue scarfs, carrying backpacks, golden sunlight filtering through trees, nostalgic atmosphere --ar 2:3",
+            "Portrait of a teenage Bangladeshi girl in a green and white school uniform, sitting near a window studying, soft natural light illuminating her face, braided hair with white ribbons, focused expression, realistic details --ar 2:3",
+            "A candid shot of two school friends sharing a tiffin box on a school bench, laughing, wearing navy blue frocks with white belts, blurred school building in background, joyful childhood vibe --ar 2:3",
+            "Rainy day scene, a young girl waiting for a rickshaw wearing a white school uniform, holding a colorful umbrella, reflection in wet Dhaka street, moody and cinematic lighting --ar 2:3",
+            "A high school student standing in the assembly line, wearing a neat white uniform and badge, singing the national anthem, morning sun rays, depth of field focusing on her face, patriotic mood --ar 2:3",
+            "A cheerful plus-size school girl eating street food (Fuchka) outside the school gate with friends, wearing a blue kameez uniform, candid moment, vibrant colors of the street, happiness --ar 2:3",
+            "A shy village girl in a red and white checkered school uniform, walking on a mud path through a paddy field, holding books against her chest, wide angle landscape, serene nature --ar 2:3",
+            "Portrait of a tall senior student adjusting her glasses, wearing a white uniform with a green dupatta, library background with shelves of books, studious and intelligent look --ar 2:3",
+            "A group of girls playing kabaddi in the school playground during sports day, wearing sports uniforms (white t-shirt and track pants), dust flying, dynamic action shot, energetic atmosphere --ar 2:3",
+            "Returning home from school at sunset, a girl sitting on a rickshaw looking at the city lights, wearing a white uniform, wind blowing her hair, nostalgic and dreamy vibe --ar 2:3",
+            "A close-up of a school girl's hands writing in a notebook, wearing a watch and uniform sleeve visible, sunlight hitting the paper, macro photography, texture of paper and ink --ar 2:3",
+            "A young girl with short curly hair running towards the school gate, late for class, wearing a blue tunic uniform, motion blur, anxious but cute expression, morning light --ar 2:3",
+            "A heartwarming scene of an elder sister fixing the uniform collar of her younger sister before school, standing in front of their home, morning routine, family bond --ar 2:3",
+            "A confident head girl wearing a sash and badge over her uniform, standing on a podium giving a speech, blurred audience of students, leadership theme, sharp focus --ar 2:3",
+            "A group of college girls in white uniforms sitting in a circle on the grass at Ramna Park, chatting and laughing, books scattered around, relaxed afternoon vibe --ar 2:3",
+            "A portrait of a girl with freckles wearing a green uniform, holding a flower, soft bokeh background of a garden, innocent and natural beauty, 85mm lens shot --ar 2:3",
+            "Exam hall scene, a student thinking deeply with a pen on her lip, wearing a white uniform, rows of desks in background, serious atmosphere, exam tension --ar 2:3",
+            "A girl buying colorful bangles from a street vendor after school, wearing her uniform, vibrant contrast between the white dress and colorful bangles, cultural lifestyle --ar 2:3",
+            "A sleepy student resting her head on a pile of books on a desk, late night study session, wearing a casual home version of uniform, lamp light, cozy atmosphere --ar 2:3",
+            "Farewell day at school, a girl writing on her friend's uniform shirt with a marker, emotional moment, hugging, candid photography, capturing memories --ar 2:3"
+        ];
+
+        // --- Auto Generator Data Parts (School Life Themed) ---
+        const subjects = ["A cheerful Bangladeshi school girl", "A studious teenage girl", "A group of school friends", "A shy village school girl", "A confident senior student", "A young girl with braided hair"];
+        const uniforms = ["wearing a white salwar kameez with blue scarf", "in a navy blue frock uniform with white belt", "wearing a green and white college uniform", "in a white tunic with red tie", "wearing a checkered school dress", "in a white uniform with green dupatta"];
+        const actions = ["walking to school", "studying intensely", "laughing with friends", "waiting for a rickshaw", "eating street food", "playing in the playground", "reading a book", "looking out of a window"];
+        const settings = ["on a busy Dhaka street", "in a quiet village path", "inside a classroom", "in the school library", "at the school gate", "on a rickshaw", "under a large Banyan tree", "in a rainy street"];
+        const mood = ["nostalgic", "joyful", "serene", "moody", "cinematic", "candid", "focused", "dreamy"];
+        const lighting = ["morning golden hour", "soft window light", "dramatic rainy atmosphere", "bright afternoon sun", "sunset silhouette", "warm indoor lighting"];
+
+        // --- DOM Elements ---
+        const grid = document.getElementById('prompt-grid');
+        const generateBtn = document.getElementById('generate-btn');
+        const toast = document.getElementById('toast');
+
+        // --- Functions ---
+
+        // 1. Random Picker
+        function getRandom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        // 2. Generator Logic
+        function generateAutoPrompts(count) {
+            let newPrompts = [];
+            for(let i=0; i<count; i++) {
+                const sub = getRandom(subjects);
+                const dress = getRandom(uniforms);
+                const act = getRandom(actions);
+                const loc = getRandom(settings);
+                const vibe = getRandom(mood);
+                const light = getRandom(lighting);
+                
+                // Constructing the prompt string
+                const prompt = `A ${vibe} shot of ${sub} ${dress}, ${act}, ${loc}, ${light}, realistic photography, highly detailed, 8k resolution --ar 2:3`;
+                newPrompts.push(prompt);
+            }
+            return newPrompts;
+        }
+
+        // 3. Render Card
+        function createCard(text, index) {
+            const div = document.createElement('div');
+            div.className = 'prompt-card bg-brand-surface border border-gray-800 p-6 relative group hover:border-brand-gold/50 transition-all duration-300 cursor-pointer flex flex-col h-full animate-fade-in';
+            // Animation delay for cascading effect
+            div.style.animationDelay = `${(index % 10) * 0.05}s`;
+            
+            div.innerHTML = `
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-xs text-brand-gold uppercase tracking-wider font-bold">School Life #${Math.floor(Math.random() * 9000) + 1000}</span>
+                    <i class="fas fa-copy text-gray-500 group-hover:text-brand-gold transition-colors copy-btn opacity-50"></i>
+                </div>
+                <p class="text-gray-300 font-light text-sm leading-relaxed flex-grow font-sans select-all">${text}</p>
+                <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-gray-600 group-hover:text-gray-400 transition-colors uppercase tracking-widest flex justify-between">
+                    <span>Midjourney v6</span>
+                    <span>--ar 2:3</span>
+                </div>
+            `;
+            
+            // Click to copy logic
+            div.addEventListener('click', () => {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast();
+                    div.classList.add('border-brand-gold');
+                    setTimeout(() => div.classList.remove('border-brand-gold'), 300);
+                });
+            });
+
+            return div;
+        }
+
+        // 4. Toast Notification
+        function showToast() {
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 2000);
+        }
+
+        // 5. Render Initial Prompts
+        function renderInitial() {
+            initialPrompts.forEach((prompt, index) => {
+                grid.appendChild(createCard(prompt, index));
+            });
+        }
+
+        // --- Event Listeners ---
+        
+        // Generate Button Click
+        generateBtn.addEventListener('click', () => {
+            // Button loading state
+            const originalText = generateBtn.querySelector('span').innerText;
+            generateBtn.querySelector('span').innerText = "REMEMBERING...";
+            generateBtn.disabled = true;
+
+            setTimeout(() => {
+                const newPrompts = generateAutoPrompts(10);
+                newPrompts.forEach((prompt, index) => {
+                    grid.appendChild(createCard(prompt, index));
+                });
+                
+                // Reset button
+                generateBtn.querySelector('span').innerText = originalText;
+                generateBtn.disabled = false;
+                
+                // Scroll slightly to show new content
+                window.scrollBy({ top: 400, behavior: 'smooth' });
+            }, 600); // Fake delay for effect
+        });
+
+        // Init
+        renderInitial();
+
+    </script>
+</body>
+</html>
