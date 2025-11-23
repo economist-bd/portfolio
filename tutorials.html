@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorials | Md. Monjirul Hoque</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Cinzel', 'serif'] },
+                    colors: { brand: { gold: '#D4AF37', dark: '#0f0f0f', surface: '#1a1a1a' } }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans antialiased">
+
+    <!-- Navigation (Simplified for sub-pages) -->
+    <nav class="fixed w-full z-50 py-6 px-6 bg-brand-dark/95 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-serif font-bold tracking-widest text-white">MONJIRUL.</a>
+            <a href="index.html" class="text-xs tracking-widest text-brand-gold hover:text-white transition-colors uppercase"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="pt-32 pb-16 px-4 text-center">
+        <span class="text-brand-gold tracking-widest text-sm uppercase">Learn & Grow</span>
+        <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mt-4">Tutorials</h1>
+        <p class="text-gray-400 mt-4 max-w-2xl mx-auto font-light">Master the art of photography and AI editing with my step-by-step guides.</p>
+    </div>
+
+    <!-- Tutorials Grid -->
+    <section class="pb-24 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Tutorial Card 1 -->
+            <div class="bg-brand-surface group cursor-pointer border border-gray-800 hover:border-brand-gold/50 transition-all duration-300">
+                <div class="relative overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fas fa-play-circle text-4xl text-brand-gold"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs text-brand-gold uppercase tracking-wider">Lightroom</span>
+                    <h3 class="text-xl font-serif text-white mt-2 mb-3">Moody Urban Grading</h3>
+                    <p class="text-gray-400 text-sm font-light mb-4">Learn how to create that dark, cinematic urban look using standard Lightroom tools.</p>
+                    <a href="#" class="text-white text-xs tracking-widest border-b border-brand-gold pb-1 hover:text-brand-gold transition-colors">WATCH NOW</a>
+                </div>
+            </div>
+
+            <!-- Tutorial Card 2 -->
+            <div class="bg-brand-surface group cursor-pointer border border-gray-800 hover:border-brand-gold/50 transition-all duration-300">
+                <div class="relative overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fas fa-book-open text-4xl text-brand-gold"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs text-brand-gold uppercase tracking-wider">AI Workflow</span>
+                    <h3 class="text-xl font-serif text-white mt-2 mb-3">Midjourney to Photoshop</h3>
+                    <p class="text-gray-400 text-sm font-light mb-4">A complete workflow on generating base images and refining them for professional use.</p>
+                    <a href="#" class="text-white text-xs tracking-widest border-b border-brand-gold pb-1 hover:text-brand-gold transition-colors">READ GUIDE</a>
+                </div>
+            </div>
+
+             <!-- Tutorial Card 3 -->
+             <div class="bg-brand-surface group cursor-pointer border border-gray-800 hover:border-brand-gold/50 transition-all duration-300">
+                <div class="relative overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1554048612-387768052bf7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fas fa-play-circle text-4xl text-brand-gold"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs text-brand-gold uppercase tracking-wider">Photography</span>
+                    <h3 class="text-xl font-serif text-white mt-2 mb-3">Composition 101</h3>
+                    <p class="text-gray-400 text-sm font-light mb-4">Understanding the rule of thirds and leading lines in landscape photography.</p>
+                    <a href="#" class="text-white text-xs tracking-widest border-b border-brand-gold pb-1 hover:text-brand-gold transition-colors">WATCH NOW</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark border-t border-gray-900 py-10 text-center">
+        <p class="text-gray-600 text-xs tracking-widest">© 2024 MD. MONJIRUL HOQUE.</p>
+    </footer>
+</body>
+</html>
